@@ -61,7 +61,7 @@ dns:
 pr:   &a3 {type: select,   proxies: [♻️ 自动选择, 🚀 手动切换, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, DIRECT] }
 p:    &a1 {type: http,     interval: 86400,  health-check: {enable: true, url: http://www.gstatic.com/generate_204, interval: 1800} }
 auto: &a4 {type: url-test, lazy: true,  url: http://www.gstatic.com/generate_204, interval: 900, use: [Subscribe, Yilao] }
-use:  &a2 {type: select,   use: [Subscribe] }
+use:  &a2 {type: select,   use: [Subscribe, Yilao] }
 c:    &a6 {type: http,     behavior: classical, interval: 86400}
 d:    &a5 {type: http,     behavior: domain,    interval: 86400}
 i:    &a7 {type: http,     behavior: ipcidr,    interval: 86400}
@@ -85,13 +85,13 @@ proxy-groups:
   - {name: 🚀 手动切换, <<: *a2}
   - {name: 🌏 全球加速, <<: *a3}
   - {name: 🍎 苹果服务, <<: *a3}
-  - {name: 📺 哔哩哔哩, type: select, proxies: [DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点]}
-  - {name: 🤖 OpenAi,   type: select, proxies: [🇺🇲 美国节点]}
+  #- {name: 📺 哔哩哔哩, type: select, proxies: [DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点]}
+  #- {name: 🤖 OpenAi,   type: select, proxies: [🇺🇲 美国节点]}
   - {name: 🎬 国际媒体, <<: *a3}
   - {name: 🌌 谷歌服务, <<: *a3}
   - {name: 📟 电报消息, <<: *a3}
   - {name: 🐦 推特服务, <<: *a3}
-  - {name: 🎮 游戏平台, <<: *a3}
+  #- {name: 🎮 游戏平台, <<: *a3}
   - {name: 🆎 AdBlock, type: select, proxies: [REJECT]}
   - {name: 🐟 兜底分流, <<: *a3}
   
@@ -99,7 +99,7 @@ proxy-groups:
   - {name: ♻️ 自动选择, <<: *a4}
   - {name: 🇭🇰 香港节点, <<: *a4, filter: "港|HK|(?i)Hong"           }             
   - {name: 🇯🇵 日本节点, <<:  *a4, filter: "日|东京|JP|(?i)Japan"     }                 
-# - {name: 🇨🇳 台湾节点, <<: *a4, filter: "台|湾|TW|(?i)Taiwan"      }             
+  - {name: 🇨🇳 台湾节点, <<: *a4, filter: "台|湾|TW|(?i)Taiwan"      }             
   - {name: 🇺🇲 美国节点, <<: *a4, filter: "美|US|(?i)States|American"}             
   - {name: 🇸🇬 狮城节点, <<: *a4, filter: "新|坡|SG|(?i)Singapore"    }            
   - {name: 🇨🇳 优选节点, <<:  *a4, filter: "日|东京|JP|(?i)Japan"     }                 
@@ -137,17 +137,17 @@ rules:
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Download,DIRECT
   - RULE-SET,Ad,🆎 AdBlock
-  - RULE-SET,OpenAi,🤖 OpenAi
-  - RULE-SET,BiliBili,📺 哔哩哔哩
-  - RULE-SET,Bahamut,📺 哔哩哔哩
+  #- RULE-SET,OpenAi,🤖 OpenAi
+  #- RULE-SET,BiliBili,📺 哔哩哔哩
+  #- RULE-SET,Bahamut,📺 哔哩哔哩
   - RULE-SET,GlobalMedia,🎬 国际媒体
   - RULE-SET,Apple,🍎 苹果服务
-  - RULE-SET,Github,🌏 全球加速
-  - RULE-SET,Microsoft, 🌏 全球加速
+  #- RULE-SET,Github,🌏 全球加速
+  #- RULE-SET,Microsoft, 🌏 全球加速
   - RULE-SET,Google,🌌 谷歌服务
   - RULE-SET,Telegram,📟 电报消息
   - RULE-SET,Twitter,🌏 全球加速
-  - RULE-SET,Game,🎮 游戏平台
+  #- RULE-SET,Game,🎮 游戏平台
   - RULE-SET,ProxyLite,🌏 全球加速
   - RULE-SET,ChinaIP,DIRECT
   - GEOIP,CN,DIRECT
