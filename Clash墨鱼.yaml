@@ -1,0 +1,414 @@
+allow-lan: true
+auto:
+  interval: 900
+  lazy: true
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  use:
+    - Subscribe
+    - OKGG2
+    - H2
+bind-address: "*"
+c:
+  behavior: classical
+  interval: 86400
+  type: http
+d:
+  behavior: domain
+  interval: 86400
+  type: http
+dns:
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - +.xboxlive.com
+    - msftconnecttest.com
+    - xbox.*.microsoft.com
+    - '*.battlenet.com.cn'
+    - '*.battlenet.com'
+    - '*.blzstatic.cn'
+    - '*.battle.net'
+  fake-ip-range: 198.18.0.1/16
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+  ipv6: true
+  listen: 0.0.0.0:53
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 114.114.114.114
+external-controller: 127.0.0.1:9090
+i:
+  behavior: ipcidr
+  interval: 86400
+  type: http
+ipv6: true
+log-level: info
+mixed-port: 7893
+mode: rule
+p:
+  health-check:
+    enable: true
+    interval: 1800
+    url: http://www.gstatic.com/generate_204
+  interval: 86400
+  type: http
+port: 7890
+pr:
+  proxies:
+    - "🚀 自动选择"
+    - "🚀 手动切换"
+    - "🇭🇰 香港节点"
+    - "🇯🇵 日本节点"
+    - "🇺🇲 美国节点"
+    - "🇨🇳 优选节点"
+    - "🇸🇬 狮城节点"
+    - DIRECT
+  type: select
+proxies: null
+proxy-groups:
+  - !!merge <<:
+      type: select
+      use:
+        - Subscribe
+        - OKGG2
+        - H2
+    name: "🚀 手动切换"
+  - !!merge <<:
+      proxies:
+        - "🚀 自动选择"
+        - "🚀 手动切换"
+        - "🇭🇰 香港节点"
+        - "🇯🇵 日本节点"
+        - "🇺🇲 美国节点"
+        - "🇨🇳 优选节点"
+        - "🇸🇬 狮城节点"
+        - DIRECT
+      type: select
+    name: "🌏 全球加速"
+  - !!merge <<:
+      proxies:
+        - "🚀 自动选择"
+        - "🚀 手动切换"
+        - "🇭🇰 香港节点"
+        - "🇯🇵 日本节点"
+        - "🇺🇲 美国节点"
+        - "🇨🇳 优选节点"
+        - "🇸🇬 狮城节点"
+        - DIRECT
+      type: select
+    name: "🍎 苹果服务"
+  - name: "📺 哔哩哔哩"
+    proxies:
+      - DIRECT
+      - "🇭🇰 香港节点"
+      - "🇨🇳 优选节点"
+    type: select
+  - !!merge <<:
+      proxies:
+        - "🚀 自动选择"
+        - "🚀 手动切换"
+        - "🇭🇰 香港节点"
+        - "🇯🇵 日本节点"
+        - "🇺🇲 美国节点"
+        - "🇨🇳 优选节点"
+        - "🇸🇬 狮城节点"
+        - DIRECT
+      type: select
+    name: "🎬 国际媒体"
+  - name: "🤖 OpenAi"
+    proxies:
+      - "🇺🇲 美国节点"
+    type: select
+  - !!merge <<:
+      proxies:
+        - "🚀 自动选择"
+        - "🚀 手动切换"
+        - "🇭🇰 香港节点"
+        - "🇯🇵 日本节点"
+        - "🇺🇲 美国节点"
+        - "🇨🇳 优选节点"
+        - "🇸🇬 狮城节点"
+        - DIRECT
+      type: select
+    name: "🌌 谷歌服务"
+  - !!merge <<:
+      proxies:
+        - "🚀 自动选择"
+        - "🚀 手动切换"
+        - "🇭🇰 香港节点"
+        - "🇯🇵 日本节点"
+        - "🇺🇲 美国节点"
+        - "🇨🇳 优选节点"
+        - "🇸🇬 狮城节点"
+        - DIRECT
+      type: select
+    name: "📟 电报消息"
+  - !!merge <<:
+      proxies:
+        - "🚀 自动选择"
+        - "🚀 手动切换"
+        - "🇭🇰 香港节点"
+        - "🇯🇵 日本节点"
+        - "🇺🇲 美国节点"
+        - "🇨🇳 优选节点"
+        - "🇸🇬 狮城节点"
+        - DIRECT
+      type: select
+    name: "🐦 推特服务"
+  - !!merge <<:
+      proxies:
+        - "🚀 自动选择"
+        - "🚀 手动切换"
+        - "🇭🇰 香港节点"
+        - "🇯🇵 日本节点"
+        - "🇺🇲 美国节点"
+        - "🇨🇳 优选节点"
+        - "🇸🇬 狮城节点"
+        - DIRECT
+      type: select
+    name: "🎮 游戏平台"
+  - name: "🆎 AdBlock"
+    proxies:
+      - REJECT
+    type: select
+  - !!merge <<:
+      proxies:
+        - "🚀 自动选择"
+        - "🚀 手动切换"
+        - "🇭🇰 香港节点"
+        - "🇯🇵 日本节点"
+        - "🇺🇲 美国节点"
+        - "🇨🇳 优选节点"
+        - "🇸🇬 狮城节点"
+        - DIRECT
+      type: select
+    name: "🐟 兜底分流"
+  - !!merge <<:
+      interval: 900
+      lazy: true
+      type: url-test
+      url: http://www.gstatic.com/generate_204
+      use:
+        - Subscribe
+        - OKGG2
+    name: "🚀 自动选择"
+  - !!merge <<:
+      interval: 900
+      lazy: true
+      type: url-test
+      url: http://www.gstatic.com/generate_204
+      use:
+        - Subscribe
+        - OKGG2
+    filter: 港|HK|(?i)Hong
+    name: "🇭🇰 香港节点"
+  - !!merge <<:
+      interval: 900
+      lazy: true
+      type: url-test
+      url: http://www.gstatic.com/generate_204
+      use:
+        - Subscribe
+        - OKGG2
+    filter: 日|东京|JP|(?i)Japan
+    name: "🇯🇵 日本节点"
+  - !!merge <<:
+      interval: 900
+      lazy: true
+      type: url-test
+      url: http://www.gstatic.com/generate_204
+      use:
+        - Subscribe
+        #- OKGG2
+        - H2
+    #filter: SCP|Aries
+    name: "🇨🇳 优选节点"
+  - !!merge <<:
+      interval: 900
+      lazy: true
+      type: url-test
+      url: http://www.gstatic.com/generate_204
+      use:
+        #- Subscribe
+        - OKGG2
+    filter: 美|US|(?i)States|American
+    name: "🇺🇲 美国节点"
+  - !!merge <<:
+      interval: 900
+      lazy: true
+      type: url-test
+      url: http://www.gstatic.com/generate_204
+      use:
+        #- Subscribe
+        - OKGG2
+    filter: 新|坡|SG|(?i)Singapore
+    name: "🇸🇬 狮城节点"
+proxy-providers:
+  OKGG2:
+    interval: 86400
+    url: https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Frss.okggrss.top%2Flink%2Flt7aGJNxslPuGIbf%3Fmu%3D2&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Full_NoAuto.ini&exclude=%E8%8A%82%E7%82%B9%7C%E6%B5%81%E9%87%8F%7C%E9%82%AE%E7%AE%B1&append_type=true&sort=true&emoji=true&list=true&xudp=false&udp=false&tfo=false&expand=true&scv=false&fdn=false&new_name=true
+  Subscribe:
+    !!merge <<:
+      health-check:
+        enable: true
+        interval: 1800
+        url: http://www.gstatic.com/generate_204
+      interval: 86400
+      type: http
+      #url: https://sub.sharecentre.online/sub
+      #url: https://gist.githubusercontent.com/qsdydi/ffb5f41a5196b83a51053027a9a5b936/raw/AriesSCP_Clash
+    benchmark-url: http://www.gstatic.com/generate_204
+    interval: 86400
+    url: https://gist.githubusercontent.com/qsdydi/ffb5f41a5196b83a51053027a9a5b936/raw/Yilao_Clash
+  H2:
+    interval: 0
+    url: 'https://sub.sharecentre.online/sub  '
+redir-port: 7892
+rule-providers:
+  Ad:
+    !!merge <<:
+      behavior: domain
+      interval: 86400
+      type: http
+    path: ./ruleset/anti-ad-clash.yaml
+    url: https://anti-ad.net/clash.yaml
+  Apple:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/Apple.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml
+  BiliBili:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/BiliBili.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml
+  ChinaIP:
+    !!merge <<:
+      behavior: ipcidr
+      interval: 86400
+      type: http
+    path: ./ruleset/ChinaIP.yaml
+    url: https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml
+  Direct:
+    !!merge <<:
+      behavior: domain
+      interval: 86400
+      type: http
+    path: ./ruleset/Direct.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml
+  Download:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/Download.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml
+  Game:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/Game.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.yaml
+  Github:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/Github.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
+  GlobalMedia:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/GlobalMedia.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
+  Google:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/Google.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml
+  Lan:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/Lan.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
+  OpenAi:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/OpenAi.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
+  ProxyLite:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/ProxyLite.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ProxyLite/ProxyLite.yaml
+  Telegram:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/Telegram.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
+  Twitter:
+    !!merge <<:
+      behavior: classical
+      interval: 86400
+      type: http
+    path: ./ruleset/Twitter.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml
+rules:
+  - DOMAIN-SUFFIX,v1.mk,DIRECT
+  - DOMAIN-KEYWORD,live.com,DIRECT
+  - DOMAIN-KEYWORD,microsoft,DIRECT
+  - DOMAIN-KEYWORD,nga,DIRECT
+  - DOMAIN-KEYWORD,178,DIRECT
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,Lan,DIRECT
+  - RULE-SET,Download,DIRECT
+  - RULE-SET,Ad,🆎 AdBlock
+  - RULE-SET,GlobalMedia,🎬 国际媒体
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,Github,🌏 全球加速
+  - RULE-SET,Google,🌌 谷歌服务
+  - RULE-SET,Telegram,📟 电报消息
+  - RULE-SET,Twitter,🌏 全球加速
+  - RULE-SET,BiliBili,📺 哔哩哔哩
+  - RULE-SET,Game,🎮 游戏平台
+  - RULE-SET,ProxyLite,🌏 全球加速
+  - RULE-SET,ChinaIP,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🐟 兜底分流
+socks-port: 7891
+use:
+  type: select
+  use:
+    - Subscribe
+    - OKGG2
