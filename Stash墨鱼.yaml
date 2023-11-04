@@ -60,7 +60,7 @@ dns:
 # 策略组引用
 pr:   &a3 {type: select,   proxies: [♻️ 自动选择, 🚀 手动切换, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, DIRECT] }
 p:    &a1 {type: http,     interval: 86400,  health-check: {enable: true, url: http://www.gstatic.com/generate_204, interval: 1800} }
-auto: &a4 {type: url-test, lazy: true,  url: http://www.gstatic.com/generate_204, interval: 900, use: [Subscribe] }
+auto: &a4 {type: url-test, lazy: true,  url: http://www.gstatic.com/generate_204, interval: 900, use: [Subscribe, Yilao] }
 use:  &a2 {type: select,   use: [Subscribe] }
 c:    &a6 {type: http,     behavior: classical, interval: 86400}
 d:    &a5 {type: http,     behavior: domain,    interval: 86400}
@@ -69,9 +69,14 @@ i:    &a7 {type: http,     behavior: ipcidr,    interval: 86400}
 proxy-providers:
   Subscribe:
     <<: *a1
-    url: https://t.me/ddgksf2021.yaml
+    url: https://v1.mk/HsiCI2w
     # URL后面填写格式1[单一订阅]: 直接填写你的机场Clash订阅[推荐此种方式，避免订阅泄露]
     # URL后面填写格式2[多个订阅]：https://api.nexconvert.com/sub?target=clash&url=请手动填入你的订阅(多机场订阅用|分割即可)&emoji=true&list=true&new_name=true&udp=false
+    path: ./proxy_providers/tmp.yaml
+
+  Yilao:
+    <<: *a1
+    url: https://gist.githubusercontent.com/qsdydi/ffb5f41a5196b83a51053027a9a5b936/raw/Yilao_Clash
     path: ./proxy_providers/tmp.yaml
     
 proxies: null
@@ -92,11 +97,12 @@ proxy-groups:
   
 #节点分组
   - {name: ♻️ 自动选择, <<: *a4}
-  - {name: 🇭🇰 香港节点, <<: *a4, filter: "港|HK|(?i)Hong"           }             # a4更改为a2，即为手动选择
-  - {name: 🇯🇵 日本节点, <<:  *a4, filter: "日|东京|JP|(?i)Japan"     }             # a4更改为a2，即为手动选择     
-  - {name: 🇨🇳 台湾节点, <<: *a4, filter: "台|湾|TW|(?i)Taiwan"      }             # a4更改为a2，即为手动选择
-  - {name: 🇺🇲 美国节点, <<: *a4, filter: "美|US|(?i)States|American"}             # a4更改为a2，即为手动选择
-  - {name: 🇸🇬 狮城节点, <<: *a4, filter: "新|坡|SG|(?i)Singapore"    }            # a4更改为a2，即为手动选择
+  - {name: 🇭🇰 香港节点, <<: *a4, filter: "港|HK|(?i)Hong"           }             
+  - {name: 🇯🇵 日本节点, <<:  *a4, filter: "日|东京|JP|(?i)Japan"     }                 
+# - {name: 🇨🇳 台湾节点, <<: *a4, filter: "台|湾|TW|(?i)Taiwan"      }             
+  - {name: 🇺🇲 美国节点, <<: *a4, filter: "美|US|(?i)States|American"}             
+  - {name: 🇸🇬 狮城节点, <<: *a4, filter: "新|坡|SG|(?i)Singapore"    }            
+  - {name: 🇨🇳 优选节点, <<:  *a4, filter: "日|东京|JP|(?i)Japan"     }                 
 
 # 分流规则 
 rule-providers:
@@ -120,6 +126,13 @@ rule-providers:
   
  # 分流Policy 
 rules:
+ # 本地规则
+  - DOMAIN-SUFFIX,v1.mk,DIRECT
+  - DOMAIN-KEYWORD,live.com,DIRECT
+  - DOMAIN-KEYWORD,microsoft,DIRECT
+  - DOMAIN-KEYWORD,nga,DIRECT
+  - DOMAIN-KEYWORD,178,DIRECT
+ # Rule-Set
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Download,DIRECT
