@@ -127,6 +127,7 @@ rule-providers:
  # 分流Policy 
 rules:
  # 本地规则
+  - DOMAIN-KEYWORD,githubusercontent,DIRECT
   - DOMAIN-KEYWORD,ip-api,DIRECT
   - DOMAIN-SUFFIX,v1.mk,DIRECT
   - DOMAIN-KEYWORD,live.com,DIRECT
