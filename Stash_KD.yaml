@@ -78,6 +78,11 @@ proxy-providers:
     <<: *a1
     url: https://gist.githubusercontent.com/qsdydi/ffb5f41a5196b83a51053027a9a5b936/raw/Yilao_Clash
     path: ./proxy_providers/tmp.yaml
+
+  SCP:
+    <<: *a1
+    url: https://gist.githubusercontent.com/qsdydi/ffb5f41a5196b83a51053027a9a5b936/raw/SCP
+    path: ./proxy_providers/tmp.yaml
     
 proxies: null
 proxy-groups:
@@ -127,6 +132,7 @@ rule-providers:
  # 分流Policy 
 rules:
  # 本地规则
+  - DOMAIN-SUFFIX,sharecentre,🌏 全球加速
   - DOMAIN-KEYWORD,githubusercontent,DIRECT
   - DOMAIN-KEYWORD,ip-api,DIRECT
   - DOMAIN-SUFFIX,v1.mk,DIRECT
