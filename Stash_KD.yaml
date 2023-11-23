@@ -133,7 +133,7 @@ rule-providers:
 rules:
  # 本地规则
   - DOMAIN-SUFFIX,sharecentre,🌏 全球加速
-  - DOMAIN-KEYWORD,githubusercontent,DIRECT
+  # - DOMAIN-KEYWORD,githubusercontent,DIRECT
   - DOMAIN-KEYWORD,ip-api,DIRECT
   - DOMAIN-SUFFIX,v1.mk,DIRECT
   - DOMAIN-KEYWORD,live.com,DIRECT
@@ -145,17 +145,17 @@ rules:
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Download,DIRECT
   - RULE-SET,Ad,🆎 AdBlock
-  #- RULE-SET,OpenAi,🤖 OpenAi
-  #- RULE-SET,BiliBili,📺 哔哩哔哩
-  #- RULE-SET,Bahamut,📺 哔哩哔哩
+  # - RULE-SET,OpenAi,🤖 OpenAi
+  # - RULE-SET,BiliBili,📺 哔哩哔哩
+  # - RULE-SET,Bahamut,📺 哔哩哔哩
   - RULE-SET,GlobalMedia,🎬 国际媒体
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Github,🌏 全球加速
-  #- RULE-SET,Microsoft, 🌏 全球加速
+  # - RULE-SET,Microsoft, 🌏 全球加速
   - RULE-SET,Google,🌌 谷歌服务
   - RULE-SET,Telegram,📟 电报消息
   - RULE-SET,Twitter,🌏 全球加速
-  #- RULE-SET,Game,🎮 游戏平台
+  # - RULE-SET,Game,🎮 游戏平台
   - RULE-SET,ProxyLite,🌏 全球加速
   - RULE-SET,ChinaIP,DIRECT
   - GEOIP,CN,DIRECT
