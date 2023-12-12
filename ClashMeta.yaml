@@ -69,12 +69,14 @@ i:    &a7 {type: http,     behavior: ipcidr,    interval: 86400}
 proxy-providers:
   OKGG:
     <<: *a1
-    url: https://v1.mk/NOn1d5C
+    # url: https://v1.mk/NOn1d5C
+    url: https://v1.mk/7wqCVFU
     path: ./proxy_providers/okgg.yaml
 
   YILAO:
     <<: *a1
-    url: https://gist.githubusercontent.com/qsdydi/ffb5f41a5196b83a51053027a9a5b936/raw/Yilao_Clash
+    # url: https://gist.githubusercontent.com/qsdydi/ffb5f41a5196b83a51053027a9a5b936/raw/Yilao_Clash
+    url: https://v1.mk/mgpRqGq
     path: ./proxy_providers/yilao.yaml
 
   SCP:
