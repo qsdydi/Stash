@@ -98,7 +98,7 @@ proxy-groups:
   - {name: 📟 电报消息, <<: *a3}
   - {name: 🐦 推特服务, <<: *a3}
   #- {name: 🎮 游戏平台, <<: *a3}
-  - {name: 🆎 AdBlock, type: select, proxies: [DIRECT, REJECT]}
+  - {name: 🆎 AdBlock, type: select, proxies: [REJECT, DIRECT]}
   - {name: 🐟 兜底分流, <<: *a3}
   
 #节点分组
