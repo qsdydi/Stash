@@ -23,3 +23,8 @@ OKGG转换设置
 OKGG订阅
   https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Frss.okggrss.top%2Flink%2Flt7aGJNxslPuGIbf%3Fmu%3D2&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini&exclude=%E8%8A%82%E7%82%B9%7C%E6%B5%8B%E9%80%9F%7C%E6%B5%81%E9%87%8F%7C%E5%9F%9F%E5%90%8D%7C%E6%8A%80%E6%9C%AF%7C%E7%99%BB%E5%BD%95%7C%E9%82%AE%E7%AE%B1%7C%E7%AD%89%E7%BA%A7&include=%E9%A6%99%E6%B8%AF%7C%E7%BE%8E%E5%9B%BD%7C%E6%96%B0%E5%8A%A0%E5%9D%A1%7C%E6%97%A5%E6%9C%AC%7C%E5%8F%B0%E6%B9%BE%7C%E5%8A%A0%E6%8B%BF%E5%A4%A7%7C%E9%9F%A9%E5%9B%BD&sort=true&emoji=true&list=true&xudp=false&udp=true&tfo=false&expand=false&scv=false&fdn=true&new_name=true
   https://v1.mk/7wqCVFU
+
+SCP转换设置
+  ACL_默认版 仅节点信息 emoji udp 节点排序 过滤不支持节点
+
+SCP订阅
