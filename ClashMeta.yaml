@@ -78,6 +78,7 @@ proxy-providers:
     <<: *a1
     # url: https://gist.githubusercontent.com/qsdydi/ffb5f41a5196b83a51053027a9a5b936/raw/Yilao_Clash
     url: https://v1.mk/mgpRqGq
+    interval: 7200
     path: ./proxy_providers/yilao.yaml
 
   SCP:
@@ -161,12 +162,5 @@ rules:
   # - RULE-SET,Game,🎮 游戏平台
   - RULE-SET,ProxyLite,🌏 全球加速
   - RULE-SET,ChinaIP,DIRECT
-  - GEOIP,CN,DIRECT
+  #- GEOIP,CN,DIRECT
   - MATCH,🐟 兜底分流
-
-
-# TUN模式是通过在操作系统上安装一个虚拟网卡来实现的，它可以接管所有的网络流量，并将流量转发至Clash，然后由Clash发出请求
-# Windows 系统中如何启用TUN模式
-# 1、运行 Clash For Windows, 确保使用规则模式，并可以联网
-# 2、点击 General中的Service Mode右侧的Manage按钮，在弹出窗口中选择schtasks，安装服务模式。安装完成后，应用程序会自动重启，Service Mode右侧的地球图标变为绿色表示安装成功
-# 3、点击 General中的TUN Mode右侧的开关以启动TUN模式
